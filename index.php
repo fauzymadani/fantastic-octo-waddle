@@ -32,7 +32,7 @@
       <img src="https://www.debian.org/logos/openlogo-nd.svg" alt="Debian Logo" width="50" height="50">
     </div>
     <ul class="nav-links">
-      <li><a href="#">Blog</a></li>
+      <li><a href="./blog.php">Blog</a></li>
       <li><a href="#">Micronews</a></li>
       <li><a href="packages.php">my Packages</a></li>
     </ul>
