@@ -127,6 +127,7 @@
       <li><a href="./packages.php">my Packages</a></li>
       <li><a href="https://github.com/fauzymadani">my github</a></li>
       <li><a href="https://gitlab.com/fauzymadani">my gitlab</a></li>
+      <li><a href="./contactpage.php">contact me</a></li>
     </ul>
     <div class="search-container">
       <input type="text" placeholder="Search" oninput="searchContent()">
@@ -135,34 +136,37 @@
   </div>
   <span class="span1 text">
     <p class="text">this website is inspired by <a href="https://debian.org">debian page</a></p>
+
   </span>
   <div class="main-content" align="center">
     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2NNtDOYpsHAThbo21W_8oK-hSVWiLpWdTjA&s" alt="">
     <div class="text">
       <h1 data-translate="greeting">Hello, visitor!</h1>
-      <p>-----BEGIN PGP SIGNED MESSAGE-----<br>
-        Hash: SHA512<br>
+      <pre>
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
 
-        that's not my photo. i'm Fauzy Madani by the way.<br>
-        a hyper active and passionate Web developer from indonesia.<br>
-        i know this is not a good website, but i like this style.<br>
-        -----BEGIN PGP SIGNATURE-----<br>
-        <br>
-        iQIzBAEBCgAdFiEEZFSHdhPyF4ApFuH4L0pyCwpIvzwFAmcZ/SEACgkQL0pyCwpI<br>
-        vzxtPA/+NInzySjxBYs7X2vHkKZRcqEsjSGmv26FPjkTZGU6ulQmlmmrXDsTnsDZ<br>
-        0GbnIAZPxwR78KwLuNGl5kzUM7mhsTHpSj91KFJuSLlKJ6us1SnAx9thEFRwSkRH<br>
-        vcW1S4K/EUkOSdOrZAOkaVZo+3z85A0wNF/Vq1iMYvj6oQnv5mtBxiMsag5wRxlq<br>
-        y9ZDCHRNAOXqwY//9fMjjFh6JAmucdeMyqne/f505NmfQiCOOJGi4pOP5o3qWQvo<br>
-        ssEXpNO4k+EmKYT/eeQnmllaFqFpqKkPe7n5GSuUv5QSicOekYS/8tC5upb98mMG<br>
-        8k0srmN6yAcZNAURraTPtuXJEmuWb8lufVANtF9sq7txgR39A9/vUqHw0/XFMdeU<br>
-        XYZBCfR5kmGG4GyoWkMam84/arg8NHFlxRkqpLS29i541M4XSDyqZVKACLzLvABF<br>
-        tEgjL00MdPlM6q/LFwSuK+2+aYQVbbMny9P4QTSQ9RLxhj9tDUwxsCQPiYnLaKBT<br>
-        Lnf+sAQvaJYGm29MQcj/kIr9IT+752C3HFVD1oBQw/+rFiLlCTBYP/eNDkNNGZ6n<br>
-        rpDLO+ZmxNR5DSPgkwRaJQTlhrG0/hc1RLTLFFvet5fU83XP4JUePkxTKf4KTT75<br>
-        NzU0FRgn178cjGBL602Bi3qVLh25PwlEqVdF5/JasclmKkd/vwc=<br>
-        =3DmY<br>
-        -----END PGP SIGNATURE-----<br>
-      </p>
+that's not my photo. i'm Fauzy Madani by the way.
+a hyper active and passionate Web developer from indonesia.
+i know this is not a good website, but i like this style.
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCgAdFiEEZFSHdhPyF4ApFuH4L0pyCwpIvzwFAmccqaIACgkQL0pyCwpI
+vzz+BQ//TUoJ8BvNPcYySIQfeezSnxoaBp80QO/AoXzRsd9BLKFA5xYOC6HECLkb
+2tEydwSh/lwRzk+DJfkPv/o+Io2hMRss4Qeu7CbJmqL83PrDBBZxEVHKImcT6CJw
+JtvssU3MjTvArlWtitHFhOBM+lJ0pkpD7cUHDAw9+/InP1LAKIagdr0DZDJ5UMh+
+ioqI+NSs+li1EhvbYWX904/tsIepjio9hQEvC/7iim+MCAKlegPp49NUkInRl0Zf
+DDpbBHOr+/mh8pNfreRY8Fx++BLw5qLAhFCU73mKMSJ6ZT0KxrI5TkgbJS5TLsFJ
+xjlX0RjHVkBwP1/BurbalWhqAoyc+aib4oHl9PSe1OMniUT7SBM/PSK6VG5QLS5Z
+ue3AQBpytuUdjqINW0XBcwkFN3FLxBHWC+iCND6D4EGHqoQKcz7m/LJStPzC3jRx
+FJCC1sx6YWsnIRSJ+oG3FAVdvVDyxYk0M5R0RHqD6ZJKofa2eWnSi0zvKuSpf8ig
+8Jzbp33hqLmP85YPdp8iGohozD011lWrtWpOQOmUhwYLfqeU+y20NjY3IWyuKhpS
+WTgP6xZ+udUepqDHOj4H8JUN7jPqEZ5C2kr66ThaxydCX5z2x6Wrud63JGmVJkXt
+9LgTocJBFz1hO9rEIl9g3cDyT+cYqN/rxgNzZbhP2XVcdeiBkqY=
+=hxjL
+-----END PGP SIGNATURE-----
+
+      </pre>
     </div>
   </div>
 
@@ -170,7 +174,7 @@
     <div class="column left-column">
       <div class="item" id="people">
         <div class="text">
-          <h3><a href="#" data-translate="people">People</a></h3>
+          <h3><a href="./about.php" data-translate="people">People</a></h3>
           <p data-translate="peopleDesc">Who we are and what we do</p>
         </div>
       </div>
@@ -245,6 +249,7 @@
       Copyright © 2024 <a href="#">SPI</a> and others; See <a href="https://opensource.org/license/mit">license terms</a><br>
       this website is a registered/licensed under the <a href="https://opensource.org/license/mit">MIT License.</a>
     </p>
+    <strong>don't like this website style? see the list of my website <a href="list.php">here</a></strong>
   </footer>
 </body>
 
