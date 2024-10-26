@@ -32,8 +32,7 @@
     }
 
     header nav ul li a {
-      color: #fff;
-      text-decoration: none;
+      color: blue;
     }
 
     .container {
