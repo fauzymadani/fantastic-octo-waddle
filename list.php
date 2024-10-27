@@ -87,8 +87,8 @@
     </div>
 
     <div class="blog-post">
-      <h2>Introduction to Docker on Linux</h2>
-      <p>if you're not an IT person an looking for a normal looking website, and ease of use. you can check it <a href="https://fauzymadani.infinityfreeapp.com">here.</a> </p>
+      <h2>Normal styled website</h2>
+      <p>if you're not an IT person and looking for a normal looking website, and ease of use. you can check it <a href="https://fauzymadani.infinityfreeapp.com">here.</a> </p>
     </div>
 
   </div>

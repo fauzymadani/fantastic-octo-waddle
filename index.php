@@ -16,6 +16,34 @@
       justify-content: center;
       margin-top: 10px;
     }
+
+    pre {
+      border: 1px solid black;
+      display: inline-block;
+      margin-left: 20px;
+      border: 1px solid black;
+      padding: 10px;
+      background-color: #f9f9f9;
+      margin-right: 20px;
+    }
+
+    .new-container {
+      border: 1px solid #ccc;
+      padding: 10px;
+      background-color: #f0f0f0;
+      width: 300px;
+      /* Fixed width for the additional information container */
+      margin-left: 10px;
+    }
+
+    .new-container h2 {
+      margin-bottom: 10px;
+    }
+
+    .new-container pre {
+      border: 1px solid black;
+      /* font-family: 'JetBrains Mono', monospace;*/
+    }
   </style>
   <script>
     function highlightText(element, input) {
@@ -51,19 +79,19 @@
       });
     }
 
-    // Fungsi untuk mengubah bahasa
+
     function changeLanguage(language) {
       const translations = {
         en: {
           greeting: "Hello, visitor!",
-          people: "People",
-          peopleDesc: "Who we are and what we do",
-          philosophy: "Our Philosophy",
-          philosophyDesc: "Why we do it, and how we do it",
-          contribute: "Get Involved, Contribute",
-          contributeDesc: "How you can join us!",
-          moreLeft: "More...",
-          moreLeftDesc: "Additional information about the Debian community",
+          people: "About me",
+          peopleDesc: "Learn More about my work",
+          philosophy: "My Philosophy",
+          philosophyDesc: "Why do it, and how do it",
+          contribute: "Why Linux?",
+          contributeDesc: "What makes Linux my go-to OS.",
+          moreLeft: "Support and Documentation",
+          moreLeftDesc: "Resources to help you get started with my projects.",
           whyDebian: "Why Debian",
           whyDebianDesc: "What makes Debian special",
           userSupport: "User Support",
@@ -77,14 +105,14 @@
         },
         id: {
           greeting: "Halo, pengunjung!",
-          people: "Orang-orang",
-          peopleDesc: "Siapa kami dan apa yang kami lakukan",
-          philosophy: "Filosofi Kami",
-          philosophyDesc: "Mengapa kami melakukannya, dan bagaimana kami melakukannya",
-          contribute: "Terlibat, Berkontribusi",
-          contributeDesc: "Bagaimana Anda bisa bergabung dengan kami!",
-          moreLeft: "Lebih banyak...",
-          moreLeftDesc: "Informasi tambahan tentang komunitas Debian",
+          people: "Tentang saya",
+          peopleDesc: "Pelajari lebih lanjut tentang saya",
+          philosophy: "Filosofi Saya",
+          philosophyDesc: "Mengapa saya melakukannya, dan bagaimana saya melakukannya",
+          contribute: "Kenapa harus linux?",
+          contributeDesc: "Mengapa linux menjadi OS utama saya",
+          moreLeft: "Support dan dokumentsai",
+          moreLeftDesc: "Informasi tambahan tentang package saya dan project saya",
           whyDebian: "Mengapa Debian",
           whyDebianDesc: "Apa yang membuat Debian istimewa",
           userSupport: "Dukungan Pengguna",
@@ -169,31 +197,38 @@ WTgP6xZ+udUepqDHOj4H8JUN7jPqEZ5C2kr66ThaxydCX5z2x6Wrud63JGmVJkXt
       </pre>
     </div>
   </div>
+  <div class="new-container">
+    <h2>🔔 Additional Information</h2>
+    <h4>"Talk is cheap. Show me the code."</h4>
+    <strong>~ Linus torvald</strong><br>
+    <br>
+    <p>Feel free to check out my list of <a href="./list.php">Website</a> if you're don't like this tyle of website</p>
+  </div>
 
   <div class="container">
     <div class="column left-column">
       <div class="item" id="people">
         <div class="text">
-          <h3><a href="./about.php" data-translate="people">People</a></h3>
-          <p data-translate="peopleDesc">Who we are and what we do</p>
+          <h3><a href="./about.php" data-translate="people">About me</a></h3>
+          <p data-translate="peopleDesc">Learn more about my work</p>
         </div>
       </div>
       <div class="item" id="philosophy">
         <div class="text">
-          <h3><a href="#" data-translate="philosophy">Our Philosophy</a></h3>
-          <p data-translate="philosophyDesc">Why we do it, and how we do it</p>
+          <h3><a href="./philosopy.php" data-translate="philosophy">My Philosophy</a></h3>
+          <p data-translate="philosophyDesc">Why do it, and how to do it</p>
         </div>
       </div>
       <div class="item" id="contribute">
         <div class="text">
-          <h3><a href="#" data-translate="contribute">Get Involved, Contribute</a></h3>
-          <p data-translate="contributeDesc">How you can join us!</p>
+          <h3><a href="./why_linux.php" data-translate="contribute">Why Linux</a></h3>
+          <p data-translate="contributeDesc">What makes Linux my go-to OS.</p>
         </div>
       </div>
       <div class="item" id="more-left">
         <div class="text">
-          <h3><a href="#" data-translate="moreLeft">More...</a></h3>
-          <p data-translate="moreLeftDesc">Additional information about the Debian community</p>
+          <h3><a href="#" data-translate="moreLeft">Support & Documentation</a></h3>
+          <p data-translate="moreLeftDesc">Resources to help you get started with my projects.</p>
         </div>
       </div>
     </div>
