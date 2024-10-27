@@ -267,7 +267,6 @@ WTgP6xZ+udUepqDHOj4H8JUN7jPqEZ5C2kr66ThaxydCX5z2x6Wrud63JGmVJkXt
       <option value="en">English</option>
       <option value="id">Indonesian</option>
 
-      <!-- Tambahkan opsi bahasa lain di sini jika diperlukan -->
     </select>
     <p><a href="#">How to set the default document language</a></p>
     <p>
@@ -280,8 +279,20 @@ WTgP6xZ+udUepqDHOj4H8JUN7jPqEZ5C2kr66ThaxydCX5z2x6Wrud63JGmVJkXt
       ?>
       &nbsp;&nbsp;&nbsp; Last Built: Mon, Oct 21 11:26:29 UTC 2024
     </p>
+    <p><?php
+        $counterFile = 'counter.txt';
+        if (!file_exists($counterFile)) {
+          file_put_contents($counterFile, '0');
+        }
+
+        $visitCount = file_get_contents($counterFile);
+        $visitCount++;
+        file_put_contents($counterFile, $visitCount);
+        echo "page views: $visitCount";
+        ?>
+    </p>
     <p>
-      Copyright © 2024 <a href="#">SPI</a> and others; See <a href="https://opensource.org/license/mit">license terms</a><br>
+      Copyright © 2024 <a href="#">SPI</a> and others; See <a href="LICENSE">license terms</a><br>
       this website is a registered/licensed under the <a href="https://opensource.org/license/mit">MIT License.</a>
     </p>
     <strong>don't like this website style? see the list of my website <a href="list.php">here</a></strong>
