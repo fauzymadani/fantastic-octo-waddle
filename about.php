@@ -201,7 +201,7 @@
       <li><a href="https://github.com/fauzymadani">my github</a></li>
       <li><a href="https://gitlab.com/fauzymadani">my gitlab</a></li>
       <li><a href="./contactpage.php">contact me</a></li>
-      <li><a href="./about.php">About Me</a></li>
+      <li><a href="./commit.php">Commit</a></li>
     </ul>
     <div class="search-container">
       <input type="text" placeholder="Search" oninput="searchContent()">

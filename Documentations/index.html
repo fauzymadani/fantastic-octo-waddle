@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Validator Documentation</title>
+  <!-- Prism.js CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism-tomorrow.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/prism.min.js"></script>
+  <style>
+    /* Custom Styling */
+    body {
+      background-color: #1e1e1e;
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      padding: 20px;
+    }
+
+    h1,
+    h2,
+    h3 {
+      color: #e91e63;
+    }
+
+    a {
+      color: #00bcd4;
+    }
+
+    pre {
+      background-color: #2d2d2d;
+      border-radius: 5px;
+      padding: 15px;
+      overflow-x: auto;
+    }
+
+    /* Code block style */
+    pre[class*="language-"] {
+      padding: 10px;
+      border-radius: 8px;
+      overflow: auto;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Data Validator</h1>
+  <p><strong>Data Validator</strong> is a PHP package that provides a set of validation methods for common data types
+    such as emails, URLs, phone numbers, and more.</p>
+
+  <h2>Requirements</h2>
+  <ul>
+    <li>PHP 7.4 or higher</li>
+    <li>Composer</li>
+  </ul>
+
+  <h2>Installation</h2>
+  <p>You can install the package via Composer. Run the following command in your project directory:</p>
+  <pre><code class="language-bash">composer require fauzy/data-validator</code></pre>
+
+  <h2>Usage</h2>
+  <p>To use the Data Validator package, follow these steps:</p>
+
+  <h3>1. Include the Autoload File</h3>
+  <p>In your PHP script, include the Composer autoload file:</p>
+  <pre><code class="language-php">require 'vendor/autoload.php';</code></pre>
+
+  <h3>2. Create an Instance of the Validator</h3>
+  <p>Create an instance of the validator class:</p>
+  <pre><code class="language-php">
+      use DataValidator\validator;
+
+      $validator = new validator();
+    </code></pre>
+
+  <h3>3. Use Validation Methods</h3>
+  <p>You can now use the provided validation methods. Here are some examples:</p>
+
+  <h4>Validate Email</h4>
+  <pre><code class="language-php">
+      $email = "test@example.com";
+
+      if ($validator->validateEmail($email)) {
+      echo "$email is a valid email.";
+      } else {
+      echo "$email is not a valid email.";
+      }
+    </code></pre>
+
+  <h4>Validate URL</h4>
+  <pre><code class="language-php">
+      $url = "https://example.com";
+
+      if ($validator->validateUrl($url)) {
+      echo "$url is a valid URL.";
+      } else {
+      echo "$url is not a valid URL.";
+      }
+    </code></pre>
+
+  <h4>Validate Phone Number</h4>
+  <pre><code class="language-php">
+      $phone = "+628123456789";
+
+      if ($validator->validatePhoneNumber($phone)) {
+      echo "$phone is a valid phone number.";
+      } else {
+      echo "$phone is not a valid phone number.";
+      }
+    </code></pre>
+
+  <h3>Full Example</h3>
+  <pre><code class="language-php">
+      <?php
+
+require 'vendor/autoload.php';
+
+use DataValidator\validator;
+
+$validator = new validator();
+
+// Validate Email
+$email = "test@example.com";
+echo $validator->validateEmail($email) ? "$email is a valid email." : "$email is not a valid email.";
+
+// Validate URL
+$url = "https://example.com";
+echo $validator->validateUrl($url) ? "$url is a valid URL." : "$url is not a valid URL.";
+
+// Validate Phone Number
+$phone = "+628123456789";
+echo $validator->validatePhoneNumber($phone) ? "$phone is a valid phone number." : "$phone is not a valid phone number.";
+?>
+    </code></pre>
+
+  <h2>License</h2>
+  <p>This package is licensed under the MIT License. See the LICENSE file for more information.</p>
+
+  <h2>Contributing</h2>
+  <p>If you would like to contribute to this project, please open an issue or submit a pull request on the GitHub
+    repository.</p>
+
+  <h2>Real World Example</h2>
+  <p>If you have a form with an input that requires a phone number, you can validate it with this:</p>
+
+  <h3>Form HTML</h3>
+  <pre><code class="language-html">
+      <!DOCTYPE html>
+      <html lang="en">
+
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Phone Number Validation</title>
+      </head>
+
+      <body>
+        <h1>Phone Number Validator</h1>
+        <form action="validate_phone.php" method="post">
+          <label for="phone">Enter your phone number:</label>
+          <input type="text" id="phone" name="phone" required />
+          <br /><br />
+          <input type="submit" value="Validate" />
+        </form>
+      </body>
+
+      </html>
+    </code></pre>
+
+  <h3>PHP Validation Script</h3>
+  <pre><code class="language-php">
+      <?php
+
+require 'vendor/autoload.php';
+
+use DataValidator\validator;
+
+if (isset($_POST['phone'])) {
+    $phone = $_POST['phone'];
+
+    $validator = new validator();
+
+    // Validate phone number
+    if ($validator->validatePhoneNumber($phone)) {
+        echo "<h1>Result</h1>";
+        echo "<p>$phone is a valid phone number.</p>";
+    } else {
+        echo "<h1>Result</h1>";
+        echo "<p>$phone is not a valid phone number.</p>";
+    }
+} else {
+    echo "<h1>Error</h1>";
+    echo "<p>No phone number provided.</p>";
+}
+      ?>
+    </code></pre>
+
+  <h2>Author</h2>
+  <p>Fauzy Madani: <a href="https://github.com/fauzy">GitHub</a></p>
+
+  <h2>Donate</h2>
+  <p>Donate Bitcoin: <code>bc1q032apdhxqdn67rhaw48qs2mc84lqh4zyy3csh8</code></p>
+
+  <!-- Prism.js JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/prism.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism-tomorrow.min.css">
+</body>
+
+</html>

@@ -193,7 +193,22 @@ FPN7Dhr9WdS3IiAd46pf1uPMIio82cU50ojx5DzXqt6aFQmCehs=
     <hr>
     <p style="margin-top: 15px;">
       <?php
+      $counterFile = 'counter.txt';
+      if (!file_exists($counterFile)) {
+        file_put_contents($counterFile, '0');
+      }
+
+      $visitCount = file_get_contents($counterFile);
+      $visitCount++;
+      file_put_contents($counterFile, $visitCount);
+
+
+      $lastModified = date("D, M j H:i:s T Y", filemtime(__FILE__));
+      ?>
+
+      <?php
       echo "Last Modified: " . date("D, M j H:i:s T Y", filemtime(__FILE__));
+      echo "Page views + $visitCount"
       ?>
       &nbsp;&nbsp;&nbsp; Last Built: Mon, Oct 21 11:26:29 UTC 2024
     </p>

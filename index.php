@@ -156,6 +156,7 @@
       <li><a href="https://github.com/fauzymadani">my github</a></li>
       <li><a href="https://gitlab.com/fauzymadani">my gitlab</a></li>
       <li><a href="./contactpage.php">contact me</a></li>
+      <li><a href="commit.php">commit</a></li>
     </ul>
     <div class="search-container">
       <input type="text" placeholder="Search" oninput="searchContent()">
@@ -227,7 +228,7 @@ WTgP6xZ+udUepqDHOj4H8JUN7jPqEZ5C2kr66ThaxydCX5z2x6Wrud63JGmVJkXt
       </div>
       <div class="item" id="more-left">
         <div class="text">
-          <h3><a href="#" data-translate="moreLeft">Support & Documentation</a></h3>
+          <h3><a href="./Documentations/index.html" data-translate="moreLeft">Package Documentation</a></h3>
           <p data-translate="moreLeftDesc">Resources to help you get started with my projects.</p>
         </div>
       </div>
@@ -253,8 +254,8 @@ WTgP6xZ+udUepqDHOj4H8JUN7jPqEZ5C2kr66ThaxydCX5z2x6Wrud63JGmVJkXt
       </div>
       <div class="item" id="more-right">
         <div class="text">
-          <h3><a href="#" data-translate="moreRight">More...</a></h3>
-          <p data-translate="moreRightDesc">Further links to downloads and software</p>
+          <h3><a href="README.txt" data-translate="moreRight">About this project</a></h3>
+          <p data-translate="moreRightDesc">more information about this website project</p>
         </div>
       </div>
     </div>
@@ -296,6 +297,7 @@ WTgP6xZ+udUepqDHOj4H8JUN7jPqEZ5C2kr66ThaxydCX5z2x6Wrud63JGmVJkXt
       this website is a registered/licensed under the <a href="https://opensource.org/license/mit">MIT License.</a>
     </p>
     <strong>don't like this website style? see the list of my website <a href="list.php">here</a></strong>
+    <p>see commit log for this project <a href="commit.php"><button style="padding: 5px;">here</button></a></p>
   </footer>
 </body>
 
