@@ -44,6 +44,27 @@
       border: 1px solid black;
       /* font-family: 'JetBrains Mono', monospace;*/
     }
+
+    #verification-modal {
+      display: flex;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      /* Pastikan modal di atas konten lainnya */
+    }
+
+    #verification-modal div {
+      background: white;
+      padding: 20px;
+      border-radius: 5px;
+      text-align: center;
+    }
   </style>
   <script>
     function highlightText(element, input) {
@@ -140,6 +161,34 @@
         changeLanguage(language);
       });
     });
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const verificationModal = document.getElementById("verification-modal");
+      const okButton = document.getElementById("ok-button");
+      const cancelButton = document.getElementById("cancel-button");
+
+      // Cek apakah pengguna sudah melakukan verifikasi sebelumnya
+      if (!localStorage.getItem("verified")) {
+        verificationModal.style.display = "flex";
+      }
+
+      // Jika tombol OK ditekan
+      okButton.addEventListener("click", () => {
+        localStorage.setItem("verified", "true");
+        verificationModal.style.display = "none";
+      });
+
+      // Jika tombol Cancel ditekan
+      cancelButton.addEventListener("click", () => {
+        window.location.href = "./list.php"; // Arahkan ke list.php
+      });
+
+      const select = document.querySelector("select");
+      select.addEventListener("change", function() {
+        const language = this.value;
+        changeLanguage(language);
+      });
+    });
   </script>
 </head>
 
@@ -167,6 +216,14 @@
     <p class="text">this website is inspired by <a href="https://debian.org">debian page</a></p>
 
   </span>
+  <div id="verification-modal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.5); justify-content: center; align-items: center;">
+    <div style="background: white; padding: 20px; border-radius: 5px; text-align: center;">
+      <h2>Attention</h2>
+      <p>Website ini hanya untuk keseruan saya saja, bukan website profesional web developer.<br> this website is made for fun only, i'm bored.<br> not a proffessional website for average web developer.</p>
+      <button id="ok-button">OK</button>
+      <button id="cancel-button">Cancel</button>
+    </div>
+  </div>
   <div class="main-content" align="center">
     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2NNtDOYpsHAThbo21W_8oK-hSVWiLpWdTjA&s" alt="">
     <div class="text">
@@ -236,14 +293,14 @@ WTgP6xZ+udUepqDHOj4H8JUN7jPqEZ5C2kr66ThaxydCX5z2x6Wrud63JGmVJkXt
     <div class="column right-column">
       <div class="item" id="why-debian">
         <div class="text">
-          <h3><a href="#" data-translate="whyDebian">Why Debian</a></h3>
-          <p data-translate="whyDebianDesc">What makes Debian special</p>
+          <h3><a href="waka.php" data-translate="Debian">Language</a></h3>
+          <p data-translate="whyDebianDesc">programming language i'm currently use</p>
         </div>
       </div>
       <div class="item" id="user-support">
         <div class="text">
-          <h3><a href="#" data-translate="userSupport">User Support</a></h3>
-          <p data-translate="userSupportDesc">Getting help and documentation</p>
+          <h3><a href="leaderboard_project/index.php" data-translate="userSupport">Developer</a></h3>
+          <p data-translate="userSupportDesc">Developer that helping to improve this website</p>
         </div>
       </div>
       <div class="item" id="security-updates">
@@ -302,3 +359,11 @@ WTgP6xZ+udUepqDHOj4H8JUN7jPqEZ5C2kr66ThaxydCX5z2x6Wrud63JGmVJkXt
 </body>
 
 </html>
+<img src="https://via.place
+          <img src=" https://via.place
+  <img src="https://via.place
+          <img src=" https://via.place
+  <img src="https://via.place
+          <img src=" https://via.place
+  <img src="https://via.place
+          <img src=" https://via.place

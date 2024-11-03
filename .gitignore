@@ -1,0 +1,28 @@
+# Ignore Waka.php
+waka.php
+
+# Ignore Composer dependencies
+/vendor/
+
+# Ignore Composer lock file
+composer.lock
+
+# Ignore temporary files
+*.log
+*.tmp
+*.temp
+
+# Ignore cache directories
+/cache/
+*.cache
+
+# Ignore IDE-specific files
+/.idea/
+/.vscode/
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore other sensitive files
+/leaderboard_project/

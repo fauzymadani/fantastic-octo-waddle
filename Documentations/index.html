@@ -5,207 +5,205 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Data Validator Documentation</title>
-  <!-- Prism.js CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism-tomorrow.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/prism.min.js"></script>
   <style>
-    /* Custom Styling */
+    /* Global Styles */
     body {
-      background-color: #1e1e1e;
-      color: #ffffff;
       font-family: Arial, sans-serif;
       line-height: 1.6;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f8f8;
+    }
+
+    /* Sidebar Styles */
+    .sidebar {
+      background-color: #333;
+      color: #fff;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 250px;
+      overflow-x: hidden;
+      padding-top: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .sidebar a {
+      padding: 10px 15px;
+      text-decoration: underline dotted;
+      font-size: 18px;
+      color: #ddd;
+      display: block;
+      transition: color 0.3s ease;
+    }
+
+    .sidebar a:hover {
+      color: #fff;
+    }
+
+    /* Main Content */
+    .content {
+      margin-left: 250px;
       padding: 20px;
     }
 
+    /* Responsive Sidebar for Mobile */
+    @media (max-width: 768px) {
+      .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+      }
+
+      .content {
+        margin-left: 0;
+      }
+    }
+
+    /* Header and Footer */
+    header,
+    footer {
+      padding: 20px;
+      text-align: center;
+      background-color: #333;
+      color: #fff;
+    }
+
+    header {
+      font-size: 24px;
+    }
+
+    footer {
+      font-size: 14px;
+    }
+
+    /* Section Headings */
     h1,
     h2,
     h3 {
-      color: #e91e63;
+      color: #0056b3;
     }
 
-    a {
-      color: #00bcd4;
-    }
-
+    /* Code Styling */
     pre {
       background-color: #2d2d2d;
-      border-radius: 5px;
-      padding: 15px;
-      overflow-x: auto;
-    }
-
-    /* Code block style */
-    pre[class*="language-"] {
+      color: #f8f8f2;
       padding: 10px;
-      border-radius: 8px;
-      overflow: auto;
+      border-radius: 5px;
+      overflow-x: auto;
+      font-size: 15px;
+      line-height: 1.5;
     }
   </style>
 </head>
 
 <body>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <a href="#home">Home</a>
+    <a href="#requirements">Requirements</a>
+    <a href="#installation">Installation</a>
+    <a href="#usage">Usage</a>
+    <a href="#license">License</a>
+    <a href="#contributing">Contributing</a>
+    <a href="#donate">Donate</a>
+    <a href="../index.php"><button>Go back</button></a>
+  </div>
 
-  <h1>Data Validator</h1>
-  <p><strong>Data Validator</strong> is a PHP package that provides a set of validation methods for common data types
-    such as emails, URLs, phone numbers, and more.</p>
+  <!-- Main Content -->
+  <div class="content">
+    <header>Data Validator Documentation</header>
 
-  <h2>Requirements</h2>
-  <ul>
-    <li>PHP 7.4 or higher</li>
-    <li>Composer</li>
-  </ul>
+    <section id="home">
+      <h1>Data Validator</h1>
+      <p>Data Validator is a PHP package that provides a set of validation methods for common data types such as emails,
+        URLs, phone numbers, and more.</p>
+    </section>
 
-  <h2>Installation</h2>
-  <p>You can install the package via Composer. Run the following command in your project directory:</p>
-  <pre><code class="language-bash">composer require fauzy/data-validator</code></pre>
+    <section id="requirements">
+      <h2>Requirements</h2>
+      <ul>
+        <li>PHP 7.4 or higher</li>
+        <li>Composer</li>
+      </ul>
+    </section>
 
-  <h2>Usage</h2>
-  <p>To use the Data Validator package, follow these steps:</p>
+    <section id="installation">
+      <h2>Installation</h2>
+      <p>You can install the package via Composer. Run the following command in your project directory:</p>
+      <pre>composer require fauzy/data-validator</pre>
+    </section>
 
-  <h3>1. Include the Autoload File</h3>
-  <p>In your PHP script, include the Composer autoload file:</p>
-  <pre><code class="language-php">require 'vendor/autoload.php';</code></pre>
+    <section id="usage">
+      <h2>Usage</h2>
+      <p>To use the Data Validator package, follow these steps:</p>
 
-  <h3>2. Create an Instance of the Validator</h3>
-  <p>Create an instance of the validator class:</p>
-  <pre><code class="language-php">
-      use DataValidator\validator;
+      <h3>1. Include the Autoload File</h3>
+      <p>In your PHP script, include the Composer autoload file:</p>
+      <pre>require 'vendor/autoload.php';</pre>
 
-      $validator = new validator();
-    </code></pre>
+      <h3>2. Create an Instance of the Validator</h3>
+      <pre>use DataValidator\validator;
+        $validator = new validator();
+      </pre>
 
-  <h3>3. Use Validation Methods</h3>
-  <p>You can now use the provided validation methods. Here are some examples:</p>
+      <h3>3. Use Validation Methods</h3>
+      <p>You can now use the provided validation methods. Here are some examples:</p>
 
-  <h4>Validate Email</h4>
-  <pre><code class="language-php">
-      $email = "test@example.com";
+      <h4>Validate Email</h4>
+      <pre>
+        $email = "test@example.com";
+        if ($validator->validateEmail($email)) {
+        echo "$email is a valid email.\n";
+        } else {
+        echo "$email is not a valid email.\n";
+        }
+      </pre>
 
-      if ($validator->validateEmail($email)) {
-      echo "$email is a valid email.";
-      } else {
-      echo "$email is not a valid email.";
-      }
-    </code></pre>
+      <h4>Validate URL</h4>
+      <pre>
+        $url = "https://example.com";
+        if ($validator->validateUrl($url)) {
+        echo "$url is a valid URL.\n";
+        } else {
+        echo "$url is not a valid URL.\n";
+        }
+      </pre>
 
-  <h4>Validate URL</h4>
-  <pre><code class="language-php">
-      $url = "https://example.com";
+      <h4>Validate Phone Number</h4>
+      <pre>
+        $phone = "+628123456789";
+        if ($validator->validatePhoneNumber($phone)) {
+        echo "$phone is a valid phone number.\n";
+        } else {
+        echo "$phone is not a valid phone number.\n";
+        }
+      </pre>
+    </section>
 
-      if ($validator->validateUrl($url)) {
-      echo "$url is a valid URL.";
-      } else {
-      echo "$url is not a valid URL.";
-      }
-    </code></pre>
+    <section id="license">
+      <h2>License</h2>
+      <p>This package is licensed under the MIT License. See the LICENSE file for more information.</p>
+    </section>
 
-  <h4>Validate Phone Number</h4>
-  <pre><code class="language-php">
-      $phone = "+628123456789";
+    <section id="contributing">
+      <h2>Contributing</h2>
+      <p>If you would like to contribute to this project, please open an issue or submit a pull request on the GitHub
+        repository.</p>
+    </section>
 
-      if ($validator->validatePhoneNumber($phone)) {
-      echo "$phone is a valid phone number.";
-      } else {
-      echo "$phone is not a valid phone number.";
-      }
-    </code></pre>
+    <section id="donate">
+      <h2>Donate</h2>
+      <p>Donate Bitcoin: <code>bc1q032apdhxqdn67rhaw48qs2mc84lqh4zyy3csh8</code></p>
+    </section>
 
-  <h3>Full Example</h3>
-  <pre><code class="language-php">
-      <?php
-
-require 'vendor/autoload.php';
-
-use DataValidator\validator;
-
-$validator = new validator();
-
-// Validate Email
-$email = "test@example.com";
-echo $validator->validateEmail($email) ? "$email is a valid email." : "$email is not a valid email.";
-
-// Validate URL
-$url = "https://example.com";
-echo $validator->validateUrl($url) ? "$url is a valid URL." : "$url is not a valid URL.";
-
-// Validate Phone Number
-$phone = "+628123456789";
-echo $validator->validatePhoneNumber($phone) ? "$phone is a valid phone number." : "$phone is not a valid phone number.";
-?>
-    </code></pre>
-
-  <h2>License</h2>
-  <p>This package is licensed under the MIT License. See the LICENSE file for more information.</p>
-
-  <h2>Contributing</h2>
-  <p>If you would like to contribute to this project, please open an issue or submit a pull request on the GitHub
-    repository.</p>
-
-  <h2>Real World Example</h2>
-  <p>If you have a form with an input that requires a phone number, you can validate it with this:</p>
-
-  <h3>Form HTML</h3>
-  <pre><code class="language-html">
-      <!DOCTYPE html>
-      <html lang="en">
-
-      <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Phone Number Validation</title>
-      </head>
-
-      <body>
-        <h1>Phone Number Validator</h1>
-        <form action="validate_phone.php" method="post">
-          <label for="phone">Enter your phone number:</label>
-          <input type="text" id="phone" name="phone" required />
-          <br /><br />
-          <input type="submit" value="Validate" />
-        </form>
-      </body>
-
-      </html>
-    </code></pre>
-
-  <h3>PHP Validation Script</h3>
-  <pre><code class="language-php">
-      <?php
-
-require 'vendor/autoload.php';
-
-use DataValidator\validator;
-
-if (isset($_POST['phone'])) {
-    $phone = $_POST['phone'];
-
-    $validator = new validator();
-
-    // Validate phone number
-    if ($validator->validatePhoneNumber($phone)) {
-        echo "<h1>Result</h1>";
-        echo "<p>$phone is a valid phone number.</p>";
-    } else {
-        echo "<h1>Result</h1>";
-        echo "<p>$phone is not a valid phone number.</p>";
-    }
-} else {
-    echo "<h1>Error</h1>";
-    echo "<p>No phone number provided.</p>";
-}
-      ?>
-    </code></pre>
-
-  <h2>Author</h2>
-  <p>Fauzy Madani: <a href="https://github.com/fauzy">GitHub</a></p>
-
-  <h2>Donate</h2>
-  <p>Donate Bitcoin: <code>bc1q032apdhxqdn67rhaw48qs2mc84lqh4zyy3csh8</code></p>
-
-  <!-- Prism.js JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/prism.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism-tomorrow.min.css">
+    <footer>
+      <p>Author: <a href="https://github.com/fauzy" target="_blank"
+          style="color: #fff; text-decoration: underline;">Fauzy Madani</a></p>
+    </footer>
+  </div>
 </body>
 
 </html>

@@ -97,7 +97,7 @@
   $context = stream_context_create($opts);
   $data = file_get_contents($url, false, $context);
   $commits = json_decode($data, true);
-
+  echo "<h1>commit log for this project: </h1>";
   foreach ($commits as $commit) {
     $sha = $commit['sha'];
     echo "<div class='commit'>";
@@ -120,7 +120,4 @@
 
 </html>
 <!--TODO: add more features -->
-<a href="index.php">go back</a>
-<a href="index.php">go back</a>
-<a href="index.php">go back</a>
 <a href="index.php">go back</a>
