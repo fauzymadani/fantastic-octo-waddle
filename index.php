@@ -56,7 +56,6 @@
       justify-content: center;
       align-items: center;
       z-index: 1000;
-      /* Pastikan modal di atas konten lainnya */
     }
 
     #verification-modal div {
@@ -132,12 +131,12 @@
           philosophyDesc: "Mengapa saya melakukannya, dan bagaimana saya melakukannya",
           contribute: "Kenapa harus linux?",
           contributeDesc: "Mengapa linux menjadi OS utama saya",
-          moreLeft: "Support dan dokumentsai",
+          moreLeft: "Dokumentasi package",
           moreLeftDesc: "Informasi tambahan tentang package saya dan project saya",
-          whyDebian: "Mengapa Debian",
-          whyDebianDesc: "Apa yang membuat Debian istimewa",
-          userSupport: "Dukungan Pengguna",
-          userSupportDesc: "Mendapatkan bantuan dan dokumentasi",
+          whyDebian: "Bahasa",
+          whyDebianDesc: "Bahasa yang biasa saya gunakan.",
+          userSupport: "Deeveloper",
+          userSupportDesc: "Developer yang membantu meningkatkan website ini",
           securityUpdates: "Pembaruan Keamanan",
           securityUpdatesDesc: "Pemberitahuan Keamanan Debian (DSA)",
           moreRight: "Lebih banyak...",
@@ -167,14 +166,13 @@
       const okButton = document.getElementById("ok-button");
       const cancelButton = document.getElementById("cancel-button");
 
-      // Cek apakah pengguna sudah melakukan verifikasi sebelumnya
-      if (!localStorage.getItem("verified")) {
+      if (!sessionStorage.getItem("verified")) {
         verificationModal.style.display = "flex";
       }
 
       // Jika tombol OK ditekan
       okButton.addEventListener("click", () => {
-        localStorage.setItem("verified", "true");
+        sessionStorage.setItem("verified", "true");
         verificationModal.style.display = "none";
       });
 
@@ -188,6 +186,20 @@
         const language = this.value;
         changeLanguage(language);
       });
+    });
+
+    //TODO: add dark mode support
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+      const mode = document.body.classList.contains('dark-mode') ? 'dark' : 'light';
+      localStorage.setItem('theme', mode);
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+      }
     });
   </script>
 </head>
@@ -206,6 +218,7 @@
       <li><a href="https://gitlab.com/fauzymadani">my gitlab</a></li>
       <li><a href="./contactpage.php">contact me</a></li>
       <li><a href="commit.php">commit</a></li>
+      <li><a href="list.php">List</a></li>
     </ul>
     <div class="search-container">
       <input type="text" placeholder="Search" oninput="searchContent()">
@@ -359,11 +372,3 @@ WTgP6xZ+udUepqDHOj4H8JUN7jPqEZ5C2kr66ThaxydCX5z2x6Wrud63JGmVJkXt
 </body>
 
 </html>
-<img src="https://via.place
-          <img src=" https://via.place
-  <img src="https://via.place
-          <img src=" https://via.place
-  <img src="https://via.place
-          <img src=" https://via.place
-  <img src="https://via.place
-          <img src=" https://via.place
