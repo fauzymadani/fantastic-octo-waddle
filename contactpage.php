@@ -366,7 +366,6 @@ veQHRAp8ar1gzhM1fdNjm+BSK0aB/zWOBuaSFKNGJSu+83xIqFj5PsyEhnmGJP/j
       <option value="en">English</option>
       <option value="id">Indonesian</option>
 
-      <!-- Tambahkan opsi bahasa lain di sini jika diperlukan -->
     </select>
     <p><a href="#">How to set the default document language</a></p>
     <p>
@@ -379,11 +378,83 @@ veQHRAp8ar1gzhM1fdNjm+BSK0aB/zWOBuaSFKNGJSu+83xIqFj5PsyEhnmGJP/j
       ?>
       &nbsp;&nbsp;&nbsp; Last Built: Mon, Oct 21 11:26:29 UTC 2024
     </p>
+    <p><?php
+        $counterFile = 'counter.txt';
+        if (!file_exists($counterFile)) {
+          file_put_contents($counterFile, '0');
+        }
+
+        $visitCount = file_get_contents($counterFile);
+        $visitCount++;
+        file_put_contents($counterFile, $visitCount);
+        echo "page views: $visitCount";
+        ?>
+    </p>
     <p>
-      Copyright © 2024 <a href="#">SPI</a> and others; See <a href="https://opensource.org/license/mit">license terms</a><br>
+      Copyright © 2024 <a href="#">SPI</a> and others; See <a href="LICENSE">license terms</a><br>
       this website is a registered/licensed under the <a href="https://opensource.org/license/mit">MIT License.</a>
     </p>
     <strong>don't like this website style? see the list of my website <a href="list.php">here</a></strong>
+    <p>see commit log for this project <a href="commit.php"><button style="padding: 5px;">here</button></a></p>
+    <?php
+    $perms = fileperms('contactpage.php');
+
+    switch ($perms & 0xF000) {
+      case 0xC000: // socket
+        $info = 's';
+        break;
+      case 0xA000: // symbolic link
+        $info = 'l';
+        break;
+      case 0x8000: // regular
+        $info = 'r';
+        break;
+      case 0x6000: // block special
+        $info = 'b';
+        break;
+      case 0x4000: // directory
+        $info = 'd';
+        break;
+      case 0x2000: // character special
+        $info = 'c';
+        break;
+      case 0x1000: // FIFO pipe
+        $info = 'p';
+        break;
+      default: // unknown
+        $info = 'u';
+    }
+
+    // Owner
+    $info .= (($perms & 0x0100) ? 'r' : '-');
+    $info .= (($perms & 0x0080) ? 'w' : '-');
+    $info .= (($perms & 0x0040) ?
+      (($perms & 0x0800) ? 's' : 'x') : (($perms & 0x0800) ? 'S' : '-'));
+
+    // Group
+    $info .= (($perms & 0x0020) ? 'r' : '-');
+    $info .= (($perms & 0x0010) ? 'w' : '-');
+    $info .= (($perms & 0x0008) ?
+      (($perms & 0x0400) ? 's' : 'x') : (($perms & 0x0400) ? 'S' : '-'));
+
+    // World
+    $info .= (($perms & 0x0004) ? 'r' : '-');
+    $info .= (($perms & 0x0002) ? 'w' : '-');
+    $info .= (($perms & 0x0001) ?
+      (($perms & 0x0200) ? 't' : 'x') : (($perms & 0x0200) ? 'T' : '-'));
+
+    ?>
+
+    <?php
+    $index = 'contactpage.php';
+    $file_owner_info = posix_getpwuid(fileowner($index));
+
+    echo "<p>Owner: " . htmlspecialchars($file_owner_info['name']) . "</p>";
+    echo "<p>Shell: " . htmlspecialchars($file_owner_info['shell']) . "</p>";
+    echo "file permissions: ";
+    echo $info;
+    ?>
+
   </footer>
 
 

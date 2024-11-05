@@ -116,8 +116,8 @@
           whyDebianDesc: "What makes Debian special",
           userSupport: "User Support",
           userSupportDesc: "Getting help and documentation",
-          securityUpdates: "Security Updates",
-          securityUpdatesDesc: "Debian Security Advisories (DSA)",
+          securityUpdates: "User feedback",
+          securityUpdatesDesc: "Feedback about this website<",
           moreRight: "More...",
           moreRightDesc: "Further links to downloads and software",
           lastModified: "Last Modified",
@@ -137,8 +137,8 @@
           whyDebianDesc: "Bahasa yang biasa saya gunakan.",
           userSupport: "Deeveloper",
           userSupportDesc: "Developer yang membantu meningkatkan website ini",
-          securityUpdates: "Pembaruan Keamanan",
-          securityUpdatesDesc: "Pemberitahuan Keamanan Debian (DSA)",
+          securityUpdates: "Feedback",
+          securityUpdatesDesc: "feedback dari user tentang project ini",
           moreRight: "Lebih banyak...",
           moreRightDesc: "Tautan lebih lanjut ke unduhan dan perangkat lunak",
           lastModified: "Terakhir Dimodifikasi",
@@ -229,6 +229,7 @@
     <p class="text">this website is inspired by <a href="https://debian.org">debian page</a></p>
 
   </span>
+  <!-- Modal popup -->
   <div id="verification-modal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.5); justify-content: center; align-items: center;">
     <div style="background: white; padding: 20px; border-radius: 5px; text-align: center;">
       <h2>Attention</h2>
@@ -318,8 +319,8 @@ WTgP6xZ+udUepqDHOj4H8JUN7jPqEZ5C2kr66ThaxydCX5z2x6Wrud63JGmVJkXt
       </div>
       <div class="item" id="security-updates">
         <div class="text">
-          <h3><a href="#" data-translate="securityUpdates">Security Updates</a></h3>
-          <p data-translate="securityUpdatesDesc">Debian Security Advisories (DSA)</p>
+          <h3><a href="./feedback/" data-translate="securityUpdates">User feedback</a></h3>
+          <p data-translate="securityUpdatesDesc">Feedback about this website</p>
         </div>
       </div>
       <div class="item" id="more-right">
@@ -368,6 +369,66 @@ WTgP6xZ+udUepqDHOj4H8JUN7jPqEZ5C2kr66ThaxydCX5z2x6Wrud63JGmVJkXt
     </p>
     <strong>don't like this website style? see the list of my website <a href="list.php">here</a></strong>
     <p>see commit log for this project <a href="commit.php"><button style="padding: 5px;">here</button></a></p>
+    <?php
+    $perms = fileperms('index.php');
+
+    switch ($perms & 0xF000) {
+      case 0xC000: // socket
+        $info = 's';
+        break;
+      case 0xA000: // symbolic link
+        $info = 'l';
+        break;
+      case 0x8000: // regular
+        $info = 'r';
+        break;
+      case 0x6000: // block special
+        $info = 'b';
+        break;
+      case 0x4000: // directory
+        $info = 'd';
+        break;
+      case 0x2000: // character special
+        $info = 'c';
+        break;
+      case 0x1000: // FIFO pipe
+        $info = 'p';
+        break;
+      default: // unknown
+        $info = 'u';
+    }
+
+    // Owner
+    $info .= (($perms & 0x0100) ? 'r' : '-');
+    $info .= (($perms & 0x0080) ? 'w' : '-');
+    $info .= (($perms & 0x0040) ?
+      (($perms & 0x0800) ? 's' : 'x') : (($perms & 0x0800) ? 'S' : '-'));
+
+    // Group
+    $info .= (($perms & 0x0020) ? 'r' : '-');
+    $info .= (($perms & 0x0010) ? 'w' : '-');
+    $info .= (($perms & 0x0008) ?
+      (($perms & 0x0400) ? 's' : 'x') : (($perms & 0x0400) ? 'S' : '-'));
+
+    // World
+    $info .= (($perms & 0x0004) ? 'r' : '-');
+    $info .= (($perms & 0x0002) ? 'w' : '-');
+    $info .= (($perms & 0x0001) ?
+      (($perms & 0x0200) ? 't' : 'x') : (($perms & 0x0200) ? 'T' : '-'));
+
+    //source : php manual page
+    ?>
+
+    <?php
+    $index = 'index.php';
+    $file_owner_info = posix_getpwuid(fileowner($index));
+
+    echo "<p>Owner: " . htmlspecialchars($file_owner_info['name']) . "</p>";
+    echo "<p>Shell: " . htmlspecialchars($file_owner_info['shell']) . "</p>";
+    echo "file permissions: ";
+    echo $info;
+    ?>
+
   </footer>
 </body>
 
